@@ -1,5 +1,5 @@
--- INSERT INTO authority (authority_name) values ('ROLE_USER');
--- INSERT INTO authority (authority_name) values ('ROLE_ADMIN');
+INSERT INTO authority (authority_name) values ('ROLE_USER');
+INSERT INTO authority (authority_name) values ('ROLE_ADMIN');
 --
 -- -- user 1
 -- insert into users (user_id,  account_state, email, password, age, age_visible, gender, gender_visible, img_url, nickname, self_introduction, filter_all, filter_followee, filter_follower, notification_comment, notification_follow, notification_follow_accept, notification_chat, notification_like, warning_count) values (default, 'ACTIVE', 'abc@naver.com', '$2a$10$UALX0n7xu/HwfelvzW2h..9S.lmKKrZHEm6jCWnGdtqJONfJNsosy', NULL, false, 'MALE', false, NULL, '홍길동', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,  0);
