@@ -1,0 +1,61 @@
+spring:
+  # local
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/cleanbook
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+#   RDS
+#  datasource:
+#    url: jdbc:mysql://cleanbookdb.cdfj8vbv7vbs.ap-northeast-2.rds.amazonaws.com:3306/maindb?useSSL=false
+#    username: admin
+#    password: cleanSNS2!
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  config:
+    import: classpath:/smtp.yml, classpath:/auth.yml
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+    properties:
+      hibernate:
+        #          show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 100
+#        dialect: org.hibernate.dialect.MySQL55Dialect
+
+    # data.sql 추가
+  # 내장형 db
+    defer-datasource-initialization: true
+#    database-platform: org.hibernate.dialect
+
+  # 그외에서도 동작
+  sql:
+    init:
+      mode: always
+
+#  thymeleaf:
+#    prefix: classpath:/static/, classpath:/templates/
+#    suffix: .html
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+jwt:
+  header: Authorization
+  #HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+  #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
+  secret: adhj1k2jhkahc821yakjch2q3khakjdjah2hahkdhjqk23hjeahkwdhkj2ajkdhsakjh2jkhakjdhaskj2kjhkadhjka2asdasd
+  access-token-validity-in-seconds: 1800
+  refresh-token-validity-in-seconds: 86400
+
+server:
+  port: 443
+  ssl:
+    key-store: classpath:ssl/keystore.p12
+    key-store-type: PKCS12
+    key-store-password: aaa
